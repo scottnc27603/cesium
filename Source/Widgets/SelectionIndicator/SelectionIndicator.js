@@ -38,6 +38,7 @@ define([
         container = getElement(container);
 
         this._container = container;
+        this._enabled = true;
 
         var el = document.createElement('div');
         el.className = 'cesium-selection-wrapper';
@@ -95,7 +96,21 @@ css: { "cesium-selection-wrapper-visible" : isVisible }');
             get : function() {
                 return this._viewModel;
             }
+        },
+
+        /**
+         * Determine whether the browser will allow an element to be shown, or not.
+         * @type {Boolean}
+         */
+        enabled : {
+            get : function() {
+                return this._enabled;
+            },
+            set : function(value) {
+                this._enabled = value;
+            }
         }
+
     });
 
     /**
